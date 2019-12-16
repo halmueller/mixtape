@@ -21,6 +21,7 @@ class MixtapeManager {
             let fileURL: URL = URL(fileURLWithPath: filename)
             let data = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             let mixtape = try decoder.decode(Mixtape.self, from: data)
             return mixtape
         }
