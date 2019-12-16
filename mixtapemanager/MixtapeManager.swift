@@ -12,21 +12,7 @@ class MixtapeManager {
 
     func processMixtapeChanges(input: String, changeset: String, output: String) -> Bool {
         print(input, changeset, output)
-        browseTape(filename: input)
-        return true
-    }
-
-    func browseTape(filename: String) -> Bool {
-        let fileURL: URL = URL(fileURLWithPath: filename)
-        print(fileURL)
-        let data = try! Data(contentsOf: fileURL)
-        print(data)
-        let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
-        print(#function, "found", json.count, "entries")
-        print(json)
-        print(json["users"])
-        print(json["playlists"])
-        print(json["songs"])
+        let mixtape = self.mixtape(filename: input)
         return true
     }
 
