@@ -31,6 +31,7 @@ class MixtapeManager {
         for command in changeset.changes {
             try applyChange(command, to: mixtape)
         }
+        try write(mixtape, to: output)
         return true
     }
 
@@ -50,6 +51,15 @@ class MixtapeManager {
             guard let playlistId = command.playlistId else { throw(MixtapeManagerError.invalidChangeCommand) }
             try mixtape.removePlaylist(id: playlistId)
         }
+    }
+
+    func write(_ mixtape: Mixtape, to filename: String) throws {
+        let fileURL: URL = URL(fileURLWithPath: filename)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        encoder.outputFormatting = .prettyPrinted
+        let outputData = try encoder.encode(mixtape)
+        try outputData.write(to: fileURL, options: .atomic)
     }
 
     func mixtape(filename: String) throws -> Mixtape {
