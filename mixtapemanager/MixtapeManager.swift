@@ -40,14 +40,14 @@ class MixtapeManager {
     func applyChange(_ command: ChangeCommand, to mixtape: Mixtape) throws {
         switch command.operation {
         case .addSong:
-            guard let songId = command.songId else {throw(MixtapeManagerError.invalidChangeCommand)}
-            guard let playlistId = command.playlistId else {throw(MixtapeManagerError.invalidChangeCommand)}
+            guard let songId = command.songId else { throw(MixtapeManagerError.invalidChangeCommand) }
+            guard let playlistId = command.playlistId else { throw(MixtapeManagerError.invalidChangeCommand) }
             try mixtape.add(songId: songId, to: playlistId)
         case .addPlaylist:
-            guard let playlist = command.playlist else {throw(MixtapeManagerError.invalidChangeCommand)}
+            guard let playlist = command.playlist else { throw(MixtapeManagerError.invalidChangeCommand) }
             try mixtape.add(playlist: playlist)
         case .removePlaylist:
-            guard let playlistId = command.playlistId else {throw(MixtapeManagerError.invalidChangeCommand)}
+            guard let playlistId = command.playlistId else { throw(MixtapeManagerError.invalidChangeCommand) }
             try mixtape.removePlaylist(id: playlistId)
         }
     }
@@ -61,28 +61,22 @@ class MixtapeManager {
 
     func mixtape(data: Data) throws -> Mixtape  {
         do {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let mixtape = try decoder.decode(Mixtape.self, from: data)
-        return mixtape
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let mixtape = try decoder.decode(Mixtape.self, from: data)
+            return mixtape
         }
         catch {
             print(error)
-            throw(error)
+            throw(MixtapeManagerError.invalidMixtape)
         }
     }
 
     func changeset(filename: String) throws -> Changeset {
-        do {
-            let fileURL: URL = URL(fileURLWithPath: filename)
-            let data = try Data(contentsOf: fileURL)
-            let result = try self.changeset(data: data)
-            return result
-        }
-        catch {
-            print(error)
-            throw(error)
-        }
+        let fileURL: URL = URL(fileURLWithPath: filename)
+        let data = try Data(contentsOf: fileURL)
+        let result = try self.changeset(data: data)
+        return result
     }
 
     func changeset(data: Data) throws -> Changeset  {
@@ -94,8 +88,8 @@ class MixtapeManager {
         }
         catch {
             print(error)
-            throw(error)
+            throw(MixtapeManagerError.invalidChangeset)
         }
-    }
 
+    }
 }
