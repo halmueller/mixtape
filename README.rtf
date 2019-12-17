@@ -1,20 +1,39 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2511
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red11\green79\blue121;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgenericrgb\c4314\c30980\c47451;\csgenericrgb\c100000\c100000\c100000;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww12600\viewh7800\viewkind0
+\margl1440\margr1440\vieww12600\viewh17380\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 \
+\f0\fs24 \cf0 Tools used: Xcode 11.3, and macOS Catalina 10.15.2. Deployment target is 10.15. Swift version 5.1.\
 \
+Usage: mixtapemanager <input-file> <changes-file> <output-file>\
 \
-Possible speedups:\
+Input and changes files must exist. Output-file is overwritten if it exists.\
+\
+The Xcode scheme has command line arguments included. After you change them to match your file location, you can just use command-R to run a sample. Command-R without updating the schema will almost certainly fail. Or you can drag the \'93mixtapemanager\'94 from the Products folder in Xcode to a Terminal window, and add names of your files directly to the command line.\
+\
+Invoke unit tests with command-U. All data needed for the unit tests is within the unit test bundle; there are no filesystem dependencies.\
+\
+The changes file is in JSON format. It is an array of operations to perform, with operands supplied in each array element. See samples/changes1.json for an example. Operands not needed by a particular operation may be omitted if you like. For example, the \'93removePlaylist\'94 operation needs only the playlist ID.\
+\
+The actual work is done by the MixtapeManager class. The supplied main.swift creates a MixtapeManager instance and invokes the change processing using the supplied filenames. All error handling is performed within the MixtapeManager or its components.\
+\
+Any errors in the JSON itself, or logic errors in the changeset (such as omitting the song ID from \'93addSong\'94, or supplying an empty song IDs array to \'93addPlaylist\'94) will throw an error, and cause the command line app to exit with an exit code of 1 without attempting to write the output file. Successful operation (including creating the output file) exits with 0. Filesystem access/rights/existence errors will throw an error. See the enum 
+\f1 \cf2 \cb3 MixtapeManagerError
+\f0 \cf0 \cb1  for Mixtape-specific errors. Filesystem and JSON errors use Foundation\'92s error definitions.\
+\
+Possible places for speedups with very large files:\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}memory-map the JSON files.\
 {\listtext	\uc0\u8226 	}parse Mixtape and Changeset on different queues.\
-{\listtext	\uc0\u8226 	}look into SIMD JSON parsers: https://github.com/lemire/simdjson, MISON, Swift interface to simdjson\
-{\listtext	\uc0\u8226 	}split Changeset operations per user. Each user's operations go into a separate serial queue.\
+{\listtext	\uc0\u8226 	}look into SIMD JSON parsers: \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}https://github.com/lemire/simdjson looks pretty cool, and has a Swift interface at https://github.com/michaeleisel/zippyjson. \
+{\listtext	\uc0\u8259 	}Mison: a fast JSON parser for data analytics. https://www.researchgate.net/publication/319597814_Mison_a_fast_JSON_parser_for_data_analytics.\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}split Changeset operations per user. Each user's operations go into a separate serial queue.\
 {\listtext	\uc0\u8226 	}consider optimizing the Changeset, if there tend to be many changes for a particular user or playlist that cancel each other out.\
 }
