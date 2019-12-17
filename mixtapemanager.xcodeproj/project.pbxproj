@@ -14,6 +14,8 @@
 		2BABF48C23A772D200533BE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF48B23A772D200533BE9 /* User.swift */; };
 		2BABF49123A776AB00533BE9 /* Mixtape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49023A776AB00533BE9 /* Mixtape.swift */; };
 		2BABF49323A777B700533BE9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49223A777B700533BE9 /* StringExtension.swift */; };
+		2BABF49623A83E2100533BE9 /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49523A83E2100533BE9 /* Changeset.swift */; };
+		2BABF49823A83E5B00533BE9 /* ChangeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,8 @@
 		2BABF48F23A773A700533BE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2BABF49023A776AB00533BE9 /* Mixtape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixtape.swift; sourceTree = "<group>"; };
 		2BABF49223A777B700533BE9 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		2BABF49523A83E2100533BE9 /* Changeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
+		2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				2BABF48723A7729900533BE9 /* Song.swift */,
 				2BABF48923A772B900533BE9 /* Playlist.swift */,
 				2BABF48B23A772D200533BE9 /* User.swift */,
+				2BABF49523A83E2100533BE9 /* Changeset.swift */,
+				2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */,
 			);
 			path = "Mixtape structs";
 			sourceTree = "<group>";
@@ -151,7 +157,9 @@
 				2BABF48823A7729900533BE9 /* Song.swift in Sources */,
 				2BABF49323A777B700533BE9 /* StringExtension.swift in Sources */,
 				2BABF48623A75ABC00533BE9 /* MixtapeManager.swift in Sources */,
+				2BABF49823A83E5B00533BE9 /* ChangeCommand.swift in Sources */,
 				2BABF47F23A7589D00533BE9 /* main.swift in Sources */,
+				2BABF49623A83E2100533BE9 /* Changeset.swift in Sources */,
 				2BABF48C23A772D200533BE9 /* User.swift in Sources */,
 				2BABF49123A776AB00533BE9 /* Mixtape.swift in Sources */,
 				2BABF48A23A772B900533BE9 /* Playlist.swift in Sources */,

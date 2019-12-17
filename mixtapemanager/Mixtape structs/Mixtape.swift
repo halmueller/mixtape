@@ -12,4 +12,16 @@ struct Mixtape: Codable {
     let songs: [Song]
     let users: [User]
     let playlists: [Playlist]
+
+    func add(songId: String, to playlistId: String) throws {
+
+    }
+
+    func add(playlist: Playlist) throws {
+
+    }
+
+    func removePlaylist(id: String) throws {
+
+    }
 }
