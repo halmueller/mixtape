@@ -11,5 +11,5 @@ import Foundation
 struct Playlist: Codable {
     let id: String
     let userId: String
-    let songIds: [String]
+    var songIds: [String]
 }

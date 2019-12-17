@@ -20,31 +20,33 @@ enum MixtapeManagerError: Error {
 
 class MixtapeManager {
 
+    /// The key function for the assignment. Throws various `MixtapeError`s for requests that are impossible or invalid. Allow the system's errors
+    /// thrown for invalid JSON or inaccessible files to be thrown without catching them.
     func processMixtapeChanges(input: String, changes: String, output: String) throws -> Bool {
-        print(input, changes, output)
-        do {
-            let mixtape = try self.mixtape(filename: input)
-            let changeset = try self.changeset(filename: changes)
-            for command in changeset.changes {
-                try applyChange(command, to: mixtape)
-            }
+        print(input)
+        print(changes)
+        print(output)
+        let mixtape = try self.mixtape(filename: input)
+        let changeset = try self.changeset(filename: changes)
+        for command in changeset.changes {
+            try applyChange(command, to: mixtape)
         }
         return true
     }
 
+    /// Execute a command from a changese to modify our `Mixtape`. Validate that the command contains all necessary operands, e.g. that `removePlaylist`
+    /// actually contains a `playlistId`, but let the `Mixtape` object decide whether the data makes sense, e.g. that the playlist we're deleting exists.
+    /// Throw errors on invalid operands.
     func applyChange(_ command: ChangeCommand, to mixtape: Mixtape) throws {
         switch command.operation {
         case .addSong:
-            print(command)
             guard let songId = command.songId else {throw(MixtapeManagerError.invalidChangeCommand)}
             guard let playlistId = command.playlistId else {throw(MixtapeManagerError.invalidChangeCommand)}
             try mixtape.add(songId: songId, to: playlistId)
         case .addPlaylist:
-            print(command.operation)
             guard let playlist = command.playlist else {throw(MixtapeManagerError.invalidChangeCommand)}
             try mixtape.add(playlist: playlist)
         case .removePlaylist:
-            print(command.operation)
             guard let playlistId = command.playlistId else {throw(MixtapeManagerError.invalidChangeCommand)}
             try mixtape.removePlaylist(id: playlistId)
         }

@@ -19,21 +19,14 @@ let changesetName = CommandLine.arguments[2].expandingTildeInPath()
 let outputTapeName = CommandLine.arguments[3].expandingTildeInPath()
 let manager = MixtapeManager()
 
-//if let mixtape = manager.mixtape(filename: inputTapeName) {
-//    let encoder = JSONEncoder()
-//    encoder.keyEncodingStrategy = .convertToSnakeCase
-//    let roundtrip = try encoder.encode(mixtape)
-//    print(String(data: roundtrip, encoding: .utf8) ?? "roundtrip failed")
-//}
-
 do {
-    try manager.processMixtapeChanges(input: inputTapeName,
-                                      changes: changesetName,
-                                      output: outputTapeName)
+    _ = try manager.processMixtapeChanges(input: inputTapeName,
+                                          changes: changesetName,
+                                          output: outputTapeName)
     exit(EXIT_SUCCESS)
 }
 catch {
-    print(error)
+    print("Error:", error)
     exit(EXIT_FAILURE)
 }
 
