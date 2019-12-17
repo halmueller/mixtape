@@ -17,7 +17,7 @@ The Xcode scheme has command line arguments included. After you change them to m
 \
 Invoke unit tests with command-U. All data needed for the unit tests is within the unit test bundle; there are no filesystem dependencies.\
 \
-The changes file is in JSON format. It is an array of operations to perform, with operands supplied in each array element. See samples/changes1.json for an example. Operands not needed by a particular operation may be omitted if you like. For example, the \'93removePlaylist\'94 operation needs only the playlist ID.\
+The changes file is in JSON format. It is an array of operations to perform, with operands supplied in each array element. See samples/changes1.json for an example. Operands not needed by a particular operation may be omitted if you like. For example, the \'93removePlaylist\'94 operation needs only the playlist ID. The \'93playlist\'94 type, and all of the various ID types, follow the same structure used in mixtape.json.\
 \
 The actual work is done by the MixtapeManager class. The supplied main.swift creates a MixtapeManager instance and invokes the change processing using the supplied filenames. All error handling is performed within the MixtapeManager or its components.\
 \
