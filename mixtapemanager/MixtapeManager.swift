@@ -18,6 +18,7 @@ enum MixtapeManagerError: Error {
     case userNotFound
 }
 
+/// Class responsible for creating a Mixtape, reading/writing JSON files, and sending change commands to the tape..
 class MixtapeManager {
 
     /// The key function for the assignment. Throws various `MixtapeError`s for requests that are impossible or invalid. Allow the system's errors

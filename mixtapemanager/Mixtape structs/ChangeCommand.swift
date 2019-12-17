@@ -12,6 +12,7 @@ enum OperationType: String, Codable {
     case addSong, addPlaylist, removePlaylist
 }
 
+/// A change operation to be performed on a `Mixtape`. Properites that aren't applicable to a particular `OperationType` may be left `nil`.
 struct ChangeCommand: Codable {
     let operation: OperationType
     let playlistId: String?

@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Playlist: Codable {
+// Has to be a class because the `songIds` property is manipulated.
+class Playlist: Codable {
     let id: String
     let userId: String
     var songIds: [String]

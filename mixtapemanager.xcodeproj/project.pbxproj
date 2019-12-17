@@ -16,6 +16,14 @@
 		2BABF49323A777B700533BE9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49223A777B700533BE9 /* StringExtension.swift */; };
 		2BABF49623A83E2100533BE9 /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49523A83E2100533BE9 /* Changeset.swift */; };
 		2BABF49823A83E5B00533BE9 /* ChangeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */; };
+		2BABF4A023A8766000533BE9 /* mixtape_manager_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49F23A8766000533BE9 /* mixtape_manager_unit_tests.swift */; };
+		2BABF4A523A8788200533BE9 /* MixtapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF48523A75ABC00533BE9 /* MixtapeManager.swift */; };
+		2BABF4A623A878A100533BE9 /* Mixtape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49023A776AB00533BE9 /* Mixtape.swift */; };
+		2BABF4A723A878A100533BE9 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF48723A7729900533BE9 /* Song.swift */; };
+		2BABF4A823A878A100533BE9 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF48923A772B900533BE9 /* Playlist.swift */; };
+		2BABF4A923A878A100533BE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF48B23A772D200533BE9 /* User.swift */; };
+		2BABF4AA23A878A100533BE9 /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49523A83E2100533BE9 /* Changeset.swift */; };
+		2BABF4AB23A878A100533BE9 /* ChangeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,10 +50,20 @@
 		2BABF49223A777B700533BE9 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2BABF49523A83E2100533BE9 /* Changeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
 		2BABF49723A83E5B00533BE9 /* ChangeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCommand.swift; sourceTree = "<group>"; };
+		2BABF49D23A8766000533BE9 /* mixtape manager unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mixtape manager unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BABF49F23A8766000533BE9 /* mixtape_manager_unit_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mixtape_manager_unit_tests.swift; sourceTree = "<group>"; };
+		2BABF4A123A8766000533BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2BABF47823A7589D00533BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BABF49A23A8766000533BE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,6 +78,7 @@
 			children = (
 				2BABF48F23A773A700533BE9 /* README.md */,
 				2BABF47D23A7589D00533BE9 /* mixtapemanager */,
+				2BABF49E23A8766000533BE9 /* mixtape manager unit tests */,
 				2BABF47C23A7589D00533BE9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				2BABF47B23A7589D00533BE9 /* mixtapemanager */,
+				2BABF49D23A8766000533BE9 /* mixtape manager unit tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +116,15 @@
 			path = "Mixtape structs";
 			sourceTree = "<group>";
 		};
+		2BABF49E23A8766000533BE9 /* mixtape manager unit tests */ = {
+			isa = PBXGroup;
+			children = (
+				2BABF49F23A8766000533BE9 /* mixtape_manager_unit_tests.swift */,
+				2BABF4A123A8766000533BE9 /* Info.plist */,
+			);
+			path = "mixtape manager unit tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,6 +145,23 @@
 			productReference = 2BABF47B23A7589D00533BE9 /* mixtapemanager */;
 			productType = "com.apple.product-type.tool";
 		};
+		2BABF49C23A8766000533BE9 /* mixtape manager unit tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BABF4A223A8766000533BE9 /* Build configuration list for PBXNativeTarget "mixtape manager unit tests" */;
+			buildPhases = (
+				2BABF49923A8766000533BE9 /* Sources */,
+				2BABF49A23A8766000533BE9 /* Frameworks */,
+				2BABF49B23A8766000533BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mixtape manager unit tests";
+			productName = "mixtape manager unit tests";
+			productReference = 2BABF49D23A8766000533BE9 /* mixtape manager unit tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -127,6 +173,9 @@
 				ORGANIZATIONNAME = "Hal Mueller";
 				TargetAttributes = {
 					2BABF47A23A7589D00533BE9 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					2BABF49C23A8766000533BE9 = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
@@ -145,9 +194,20 @@
 			projectRoot = "";
 			targets = (
 				2BABF47A23A7589D00533BE9 /* mixtapemanager */,
+				2BABF49C23A8766000533BE9 /* mixtape manager unit tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2BABF49B23A8766000533BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BABF47723A7589D00533BE9 /* Sources */ = {
@@ -163,6 +223,21 @@
 				2BABF48C23A772D200533BE9 /* User.swift in Sources */,
 				2BABF49123A776AB00533BE9 /* Mixtape.swift in Sources */,
 				2BABF48A23A772B900533BE9 /* Playlist.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BABF49923A8766000533BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BABF4A723A878A100533BE9 /* Song.swift in Sources */,
+				2BABF4A523A8788200533BE9 /* MixtapeManager.swift in Sources */,
+				2BABF4AA23A878A100533BE9 /* Changeset.swift in Sources */,
+				2BABF4AB23A878A100533BE9 /* ChangeCommand.swift in Sources */,
+				2BABF4A923A878A100533BE9 /* User.swift in Sources */,
+				2BABF4A623A878A100533BE9 /* Mixtape.swift in Sources */,
+				2BABF4A023A8766000533BE9 /* mixtape_manager_unit_tests.swift in Sources */,
+				2BABF4A823A878A100533BE9 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +379,42 @@
 			};
 			name = Release;
 		};
+		2BABF4A323A8766000533BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TW8SJXYFP5;
+				INFOPLIST_FILE = "mixtape manager unit tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilegeographics.mixtape-manager-unit-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2BABF4A423A8766000533BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TW8SJXYFP5;
+				INFOPLIST_FILE = "mixtape manager unit tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilegeographics.mixtape-manager-unit-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -321,6 +432,15 @@
 			buildConfigurations = (
 				2BABF48323A7589D00533BE9 /* Debug */,
 				2BABF48423A7589D00533BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BABF4A223A8766000533BE9 /* Build configuration list for PBXNativeTarget "mixtape manager unit tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BABF4A323A8766000533BE9 /* Debug */,
+				2BABF4A423A8766000533BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// `Mixtape` is responsible for performing all operations. It tests for all preconditions before attempting an operation.
+// Implemented as a class because playlists and songs are manipulated.
 class Mixtape: Codable {
     var songs: [Song]
     var users: [User]
@@ -16,7 +18,7 @@ class Mixtape: Codable {
     /// Append existing `songId` to existing `playlistId`. Throws an error if either song or playlist does not exist.
     func add(songId: String, to playlistId: String) throws {
         guard songs.first(where: {$0.id == songId}) != nil else { throw(MixtapeManagerError.songNotFound) }
-        guard var playlist = playlists.first(where: {$0.id == playlistId}) else { throw(MixtapeManagerError.playlistNotFound) }
+        guard let playlist = playlists.first(where: {$0.id == playlistId}) else { throw(MixtapeManagerError.playlistNotFound) }
         playlist.songIds.append(songId)
     }
 
@@ -24,6 +26,10 @@ class Mixtape: Codable {
     func add(playlist: Playlist) throws {
         guard users.first(where: {$0.id == playlist.userId}) != nil else { throw(MixtapeManagerError.userNotFound) }
         guard playlists.first(where: {$0.id == playlist.id}) == nil else { throw(MixtapeManagerError.playlistExists) }
+        guard playlist.songIds.count > 0 else { throw(MixtapeManagerError.invalidChangeCommand) }
+        for songId in playlist.songIds {
+            guard songs.first(where: {$0.id == songId}) != nil else { throw(MixtapeManagerError.songNotFound) }
+        }
         playlists.append(playlist)
     }
 
