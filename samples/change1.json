@@ -1,0 +1,29 @@
+{
+    "changes" : [
+	{
+	    "operation" : "addSong",
+	    "playlist_id" : "2",
+	    "song_id" : "3"
+	},
+
+	{
+	    "operation" : "addPlaylist",
+	    "playlist" : {
+		"id" : "4",
+		"user_id" : "7",
+		"song_ids" : [
+		    "13",
+		    "12",
+		    "16",
+		    "2"
+		]
+	    }
+	},
+
+	{
+	    "operation" : "removePlaylist",
+	    "playlist_id" : "1"
+	}
+    ]
+}
+
