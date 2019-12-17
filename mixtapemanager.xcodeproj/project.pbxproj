@@ -45,7 +45,7 @@
 		2BABF48723A7729900533BE9 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		2BABF48923A772B900533BE9 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		2BABF48B23A772D200533BE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2BABF48F23A773A700533BE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2BABF48F23A773A700533BE9 /* README.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 		2BABF49023A776AB00533BE9 /* Mixtape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixtape.swift; sourceTree = "<group>"; };
 		2BABF49223A777B700533BE9 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2BABF49523A83E2100533BE9 /* Changeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		2BABF47223A7589D00533BE9 = {
 			isa = PBXGroup;
 			children = (
-				2BABF48F23A773A700533BE9 /* README.md */,
+				2BABF48F23A773A700533BE9 /* README.rtf */,
 				2BABF47D23A7589D00533BE9 /* mixtapemanager */,
 				2BABF49E23A8766000533BE9 /* mixtape manager unit tests */,
 				2BABF47C23A7589D00533BE9 /* Products */,
